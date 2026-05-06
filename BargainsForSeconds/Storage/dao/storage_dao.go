@@ -1,6 +1,7 @@
 package dao
 
 import (
+	"Storage/kitex_gen/storage/service"
 	"Storage/model"
 	"errors"
 	"log"
@@ -19,8 +20,14 @@ func StorageHandler(invoiceModel model.InvoiceModel) error {
 	}
 	return nil
 }
-func ExternalHandler() {
-
+func CheckHandler(orderData *service.OrderData) error {
+	invoice := model.InvoiceModel{}
+	err0 := db.Model(&model.InvoiceModel{}).Where("user_id LIKE ?", "%"+strconv.Itoa(int(orderData.UserId))+"%").Or("product_id LIKE ?", "%"+strconv.Itoa(int(orderData.ProductId))+"%").Find(&invoice)
+	if err0.Error != nil {
+		log.Fatal(err0.Error)
+		return err0.Error
+	}
+	return nil
 }
 
 func SearchInvoice(invoiceId string) error {
