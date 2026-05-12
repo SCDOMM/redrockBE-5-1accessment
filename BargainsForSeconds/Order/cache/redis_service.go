@@ -1,8 +1,8 @@
 package cache
 
 import (
+	"GeneralConfig"
 	"Order/model"
-	"Order/utils"
 	"context"
 	"errors"
 	"log"
@@ -14,7 +14,7 @@ import (
 var redisDB *redis.Client
 
 func InitRedis() error {
-	config := utils.GetRedisConfig()
+	config := GeneralConfig.GetRedisConfig()
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     config.Host + ":" + strconv.Itoa(config.Port),
 		Password: config.Password,

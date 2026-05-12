@@ -1,7 +1,15 @@
 package utils
 
 import (
+	"GeneralConfig"
+	"Order/model"
+	"strings"
 	"time"
+)
+
+var (
+	machineID = GeneralConfig.GetMachineId()
+	sf        = NewSnowflake(machineID)
 )
 
 const (
@@ -49,4 +57,12 @@ func (s *Snowflake) waitNextMillis() int64 {
 		currentTimestamp = time.Now().UnixNano() / 1e6
 	}
 	return currentTimestamp
+}
+
+func DecodeID(str string) string {
+	return strings.Split(str, ":")[2]
+}
+func CreateInvoice(order model.OrderData) model.InvoiceModel {
+	invoice := model.InvoiceModel{Id: sf.GenerateID(), OrderData: order, CreatedAt: time.Now()}
+	return invoice
 }

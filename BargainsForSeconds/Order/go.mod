@@ -3,13 +3,14 @@ module Order
 go 1.25.0
 
 require (
+	GeneralConfig v0.0.0-00010101000000-000000000000
 	github.com/cloudwego/hertz v0.10.4
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/rabbitmq/amqp091-go v1.11.0
-	gopkg.in/yaml.v3 v3.0.1
 	gorm.io/gorm v1.31.1
 )
 
+replace GeneralConfig => ../GeneralConfig
 
 require (
 	github.com/bytedance/gopkg v0.1.4 // indirect
@@ -32,4 +33,5 @@ require (
 	golang.org/x/sys v0.43.0 // indirect
 	golang.org/x/text v0.36.0 // indirect
 	google.golang.org/protobuf v1.36.11 // indirect
+	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

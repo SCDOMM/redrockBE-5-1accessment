@@ -16,7 +16,7 @@ func InitRabbitMQ(queueName string) error {
 	var err error
 	rabbitMQ, err = mq.NewRabbitMQSample(queueName)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return err
 	}
 	return nil

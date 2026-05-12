@@ -1,0 +1,27 @@
+RabbitMQConfig:
+ username: SCDOMM
+ password: 114514
+ host: 127.0.0.1
+ port: 5672
+ vhost: CQUPT7G
+MySQLConfig:
+ username: root
+ password: Aa3318752853
+ host: 127.0.0.1
+ port: 3306
+ dbname: test1
+ charset: utf8mb4&parseTime=true
+RedisConfig:
+ host: 127.0.0.1
+ port: 6379
+ password: 114514
+ db: 0
+HertzConfig:
+  host: 0.0.0.0
+  port: 8080
+MachineId:
+  id: 1
+KitexConfig:
+  server_name: 野兽先辈
+  host: 0.0.0.0
+  port: 8080

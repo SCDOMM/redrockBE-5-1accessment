@@ -2,9 +2,9 @@ package dao
 
 import (
 	"Check/model"
-	"Check/utils"
-	"Storage/kitex_gen/storage/service"
-	"Storage/kitex_gen/storage/service/storageservice"
+	"GeneralConfig"
+	"checkserver/kitex_gen/checkserver/service"
+	"checkserver/kitex_gen/checkserver/service/checkservice"
 	"context"
 	"log"
 	"strconv"
@@ -12,10 +12,13 @@ import (
 	"github.com/cloudwego/kitex/client"
 )
 
-var kitexClient storageservice.Client
+var (
+	kitexClient checkservice.Client
+)
 
-func InitKitexClient(config utils.KitexConfig) {
-	kitexClient = storageservice.MustNewClient(config.ServerName, client.WithHostPorts(config.Host+strconv.Itoa(config.Port)))
+func init() {
+	config := GeneralConfig.GetKitexConfig()
+	kitexClient = checkservice.MustNewClient(config.ServerName, client.WithHostPorts(config.Host+strconv.Itoa(config.Port)))
 }
 
 func CheckHandler(orderData model.OrderData) error {
@@ -24,7 +27,7 @@ func CheckHandler(orderData model.OrderData) error {
 	kitexData.ProductId = int32(orderData.ProductId)
 	err := kitexClient.CheckOrder(context.Background(), &kitexData)
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return err
 	}
 	return nil

@@ -2,46 +2,39 @@ package main
 
 import (
 	"Storage/dao"
-	"Storage/kitex_gen/storage/service/storageservice"
 	"Storage/mq"
 	"Storage/rd"
-	"Storage/utils"
+	"checkserver"
+	"checkserver/kitex_gen/checkserver/service/checkservice"
 	"fmt"
 )
 
 func main() {
-	err := utils.InitConfig()
-	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
 
-	err = dao.InitDao()
+	err := dao.InitDao()
 	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
-
-	svr := storageservice.NewServer(new(StorageServiceImpl))
-	err = svr.Run()
-	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("dao error!" + err.Error())
 		return
 	}
 
 	err = rd.InitRedis()
 	if err != nil {
-		fmt.Println(err.Error())
-		return
-	}
-
-	err = mq.InitMqUrl()
-	if err != nil {
-		fmt.Println(err.Error())
+		fmt.Println("redis error!" + err.Error())
 		return
 	}
 
 	rabbitMQ, err := mq.NewRabbitMQSample("test")
+	if err != nil {
+		fmt.Println("mq error!" + err.Error())
+		return
+	}
 	rabbitMQ.ConsumeSample()
+
+	svr := checkservice.NewServer(new(checkserver.CheckServiceImpl))
+	err = svr.Run()
+	if err != nil {
+		fmt.Println(err.Error())
+		return
+	}
 
 }

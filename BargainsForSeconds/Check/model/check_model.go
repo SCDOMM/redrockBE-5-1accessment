@@ -13,7 +13,7 @@ type OrderData struct {
 type InvoiceModel struct {
 	Id        int64 `gorm:"primary_key;auto_increment;not_null;unique"`
 	OrderData `gorm:"not null"`
-	CreateAt  time.Time
+	CreatedAt time.Time
 	UpdatedAt time.Time
 	gorm.DeletedAt
 }

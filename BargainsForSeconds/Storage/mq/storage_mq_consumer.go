@@ -1,8 +1,8 @@
 package mq
 
 import (
+	"GeneralConfig"
 	"Storage/sv"
-	"Storage/utils"
 	"fmt"
 	"log"
 	"strconv"
@@ -21,10 +21,9 @@ type RabbitMQ struct {
 	MqUrl     string
 }
 
-func InitMqUrl() error {
-	config := utils.GetRabbitMQConfig()
+func init() {
+	config := GeneralConfig.GetRabbitMQConfig()
 	Url = "amqp://" + config.UserName + ":" + config.Password + "@" + config.Host + ":" + strconv.Itoa(config.Port) + "/" + config.Vhost
-	return nil
 }
 func NewRabbitStruct(queueName string, exchange string) *RabbitMQ {
 	return &RabbitMQ{QueueName: queueName, Exchange: exchange, key: "", MqUrl: Url}
@@ -32,12 +31,12 @@ func NewRabbitStruct(queueName string, exchange string) *RabbitMQ {
 func (r *RabbitMQ) Destroy() error {
 	err := r.channel.Close()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return err
 	}
 	err = r.conn.Close()
 	if err != nil {
-		log.Fatal(err)
+		log.Println(err)
 		return err
 	}
 	return nil
@@ -47,25 +46,25 @@ func NewRabbitMQSample(queueName string) (*RabbitMQ, error) {
 	var err error
 	rabbitmq.conn, err = amqp091.Dial(rabbitmq.MqUrl)
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Println(err.Error())
 		return nil, err
 	}
 	rabbitmq.channel, err = rabbitmq.conn.Channel()
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Println(err.Error())
 		return nil, err
 	}
 	return rabbitmq, nil
 }
-func (r *RabbitMQ) ConsumeSample()  {
+func (r *RabbitMQ) ConsumeSample() {
 	q, err := r.channel.QueueDeclare(r.QueueName, true, false, false, false, nil)
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Println(err.Error())
 		return
 	}
 	messages, err := r.channel.Consume(q.Name, "", true, false, false, false, nil)
 	if err != nil {
-		log.Fatalf(err.Error())
+		log.Println(err.Error())
 		return
 	}
 	forever := make(chan bool)
@@ -73,7 +72,7 @@ func (r *RabbitMQ) ConsumeSample()  {
 		for d := range messages {
 			err := sv.StorageMsgHandler(d.Body)
 			if err != nil {
-				log.Fatalf(err.Error())
+				log.Println(err.Error())
 				return
 			}
 			fmt.Printf("Received a message: %s", d.Body)
