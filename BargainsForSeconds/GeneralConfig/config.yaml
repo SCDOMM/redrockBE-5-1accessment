@@ -1,15 +1,15 @@
 RabbitMQConfig:
- username: SCDOMM
+ username: 野兽先辈
  password: 114514
  host: 127.0.0.1
  port: 5672
  vhost: CQUPT7G
 MySQLConfig:
- username: root
- password: Aa3318752853
+ username: 野兽先辈
+ password: 114514
  host: 127.0.0.1
  port: 3306
- dbname: test1
+ dbname: test
  charset: utf8mb4&parseTime=true
 RedisConfig:
  host: 127.0.0.1
