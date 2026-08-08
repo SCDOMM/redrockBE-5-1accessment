@@ -5,8 +5,5 @@ import (
 )
 
 func main() {
-	h := router.InitHertzServer()
-	router.InitRouter(h)
-	h.Spin()
-
+	router.InitRouter()
 }

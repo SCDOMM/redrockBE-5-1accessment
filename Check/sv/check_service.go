@@ -1,13 +1,13 @@
 package sv
 
 import (
-	"Check/dao"
 	"Check/model"
+	"Check/sv/client"
 	"log"
 )
 
 func CheckHandler(orderData model.OrderData) error {
-	err := dao.CheckHandler(orderData)
+	err := client.CheckHandler(orderData)
 	if err != nil {
 		log.Println(err)
 		return err
