@@ -30,5 +30,10 @@ volumes
 .env
 
 # Editor/IDE
-# .idea/
+.idea/
+Check/.idea
+Storage/.idea
+Order/.idea
+GeneralConfig/.idea
+checkserver/.idea
 # .vscode/
