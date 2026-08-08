@@ -1,40 +1,34 @@
 package sv
 
 import (
-	"Order/cache"
 	"Order/model"
-	"Order/mq"
+	"Order/sv/mq"
+	"Order/sv/redis"
 	"Order/utils"
 	"context"
 	"encoding/json"
 	"log"
+	"time"
 )
 
-var rabbitMQ *mq.RabbitMQ
-
-func InitRabbitMQ(queueName string) error {
-	var err error
-	rabbitMQ, err = mq.NewRabbitMQSample(queueName)
-	if err != nil {
-		log.Println(err)
-		return err
-	}
-	return nil
+func CreateInvoice(order model.OrderData) model.InvoiceModel {
+	invoice := model.InvoiceModel{Id: utils.SnowflakeSample.GenerateID(), OrderData: order, CreatedAt: time.Now()}
+	return invoice
 }
 
 func OrderHandler(ctx context.Context, orderData model.OrderData) error {
-	err := cache.ReduceStock(ctx, orderData)
+	err := redis.ReduceStock(ctx, orderData)
 	if err != nil {
 		log.Println(err.Error())
 		return err
 	}
-	invoiceModel := utils.CreateInvoice(orderData)
+	invoiceModel := CreateInvoice(orderData)
 	jsonData, err := json.Marshal(invoiceModel)
 	if err != nil {
 		log.Println(err.Error())
 		return err
 	}
-	err = rabbitMQ.PublishSample(jsonData)
+	err = mq.RabbitSample.PublishSample(jsonData)
 	if err != nil {
 		log.Println(err.Error())
 		return err

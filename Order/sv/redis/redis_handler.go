@@ -1,34 +1,12 @@
-package cache
+package redis
 
 import (
-	"GeneralConfig"
 	"Order/model"
 	"context"
-	"errors"
+	"fmt"
 	"log"
 	"strconv"
-
-	"github.com/go-redis/redis/v8"
 )
-
-var redisDB *redis.Client
-
-func InitRedis() error {
-	config := GeneralConfig.GetRedisConfig()
-	rdb := redis.NewClient(&redis.Options{
-		Addr:     config.Host + ":" + strconv.Itoa(config.Port),
-		Password: config.Password,
-		DB:       config.DB,
-	})
-	pong, err := rdb.Ping(context.Background()).Result()
-	if err != nil {
-		log.Println(err.Error())
-		return err
-	}
-	log.Println("连接成功！" + pong)
-	redisDB = rdb
-	return nil
-}
 
 func ReduceStock(ctx context.Context, order model.OrderData) error {
 	luaScript := `
@@ -45,7 +23,7 @@ func ReduceStock(ctx context.Context, order model.OrderData) error {
 	}
 	if res.(int64) == -1 {
 		log.Println("库存不足！扣除失败！")
-		return errors.New("库存不足！错误！")
+		return fmt.Errorf("库存不足，扣除失败")
 	}
 	log.Println("扣除成功！")
 	return nil

@@ -2,14 +2,15 @@ package utils
 
 import (
 	"GeneralConfig"
-	"Order/model"
 	"strings"
+	"sync"
 	"time"
 )
 
 var (
-	machineID = GeneralConfig.GetMachineId()
-	sf        = NewSnowflake(machineID)
+	machineID       int64
+	SnowflakeSample = &Snowflake{}
+	once            sync.Once
 )
 
 const (
@@ -24,6 +25,13 @@ type Snowflake struct {
 	timestamp   int64
 	machineID   int64
 	sequenceNum int64
+}
+
+func init() {
+	once.Do(func() {
+		machineID = GeneralConfig.GetMachineId()
+		SnowflakeSample = NewSnowflake(machineID)
+	})
 }
 
 func NewSnowflake(machineID int64) *Snowflake {
@@ -61,8 +69,4 @@ func (s *Snowflake) waitNextMillis() int64 {
 
 func DecodeID(str string) string {
 	return strings.Split(str, ":")[2]
-}
-func CreateInvoice(order model.OrderData) model.InvoiceModel {
-	invoice := model.InvoiceModel{Id: sf.GenerateID(), OrderData: order, CreatedAt: time.Now()}
-	return invoice
 }
