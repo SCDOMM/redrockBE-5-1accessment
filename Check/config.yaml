@@ -1,0 +1,4 @@
+EtcdConfig:
+  key:
+  host:
+  port:

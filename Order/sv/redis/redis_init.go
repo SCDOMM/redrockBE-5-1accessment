@@ -1,7 +1,7 @@
 package redis
 
 import (
-	"GeneralConfig"
+	"Order/utils"
 	"context"
 	"log"
 	"strconv"
@@ -17,7 +17,7 @@ var (
 
 func init() {
 	once.Do(func() {
-		config := GeneralConfig.GetRedisConfig()
+		config := utils.GetRedisConfig()
 		rdb := redis.NewClient(&redis.Options{
 			Addr:     config.Host + ":" + strconv.Itoa(config.Port),
 			Password: config.Password,

@@ -1,7 +1,6 @@
 package utils
 
 import (
-	"GeneralConfig"
 	"strings"
 	"sync"
 	"time"
@@ -29,7 +28,7 @@ type Snowflake struct {
 
 func init() {
 	once.Do(func() {
-		machineID = GeneralConfig.GetMachineId()
+		machineID = GetMachineId().Id
 		SnowflakeSample = NewSnowflake(machineID)
 	})
 }

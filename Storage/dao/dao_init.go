@@ -1,8 +1,8 @@
 package dao
 
 import (
-	"GeneralConfig"
 	"Storage/model"
+	"Storage/utils"
 	"log"
 	"strconv"
 	"sync"
@@ -18,7 +18,7 @@ var (
 
 func init() {
 	once.Do(func() {
-		config := GeneralConfig.GetMySQLConfig()
+		config := utils.GetMySQLConfig()
 		dsn := config.UserName + ":" + config.Password + "@tcp(" + config.Host + ":" + strconv.Itoa(config.Port) + ")/" + config.DbName + "?charset=" + config.Charset
 		var err error
 		db, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})

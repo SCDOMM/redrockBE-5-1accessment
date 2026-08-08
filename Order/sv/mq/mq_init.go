@@ -1,7 +1,7 @@
 package mq
 
 import (
-	"GeneralConfig"
+	"Order/utils"
 	"log"
 	"strconv"
 	"sync"
@@ -28,7 +28,7 @@ var (
 
 func init() {
 	once.Do(func() {
-		config := GeneralConfig.GetRabbitMQConfig()
+		config := utils.GetRabbitMQConfig()
 		Url = "amqp://" + config.UserName + ":" + config.Password + "@" + config.Host + ":" + strconv.Itoa(config.Port) + "/" + config.Vhost
 		var err error
 		RabbitSample, err = NewRabbitMQSample(queueName)

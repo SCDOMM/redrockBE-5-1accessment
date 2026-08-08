@@ -2,7 +2,7 @@ package router
 
 import (
 	"Check/api"
-	"GeneralConfig"
+	"Check/utils"
 	"strconv"
 	"sync"
 
@@ -16,7 +16,7 @@ var (
 
 func init() {
 	once.Do(func() {
-		config := GeneralConfig.GetHertzConfig()
+		config := utils.GetHertzConfig()
 		h = server.Default(server.WithHostPorts(config.Host + ":" + strconv.Itoa(config.Port)))
 	})
 }

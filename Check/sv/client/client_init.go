@@ -1,7 +1,7 @@
 package client
 
 import (
-	"GeneralConfig"
+	"Check/utils"
 	"checkserver/kitex_gen/checkserver/service/checkservice"
 	"strconv"
 
@@ -9,6 +9,6 @@ import (
 )
 
 func init() {
-	config := GeneralConfig.GetKitexConfig()
+	config := utils.GetKitexConfig()
 	kitexClient = checkservice.MustNewClient(config.ServerName, client.WithHostPorts(config.Host+strconv.Itoa(config.Port)))
 }
