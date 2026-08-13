@@ -1,4 +1,15 @@
 EtcdConfig:
-  key:
-  host:
-  port:
+  key: /config/check
+  host: 127.0.0.1
+  port: 2379
+ResolverConfig:
+  namespace: test
+  env: dev
+  service_name: storage
+RegisterConfig:
+  namespace: test
+  env: dev
+  service_name: check
+  instance_id: check-1
+  address: 127.0.0.1:8890
+  ttl: 30

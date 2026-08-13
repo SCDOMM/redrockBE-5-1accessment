@@ -5,9 +5,62 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b12e24f2-65a5-4754-92ef-4060c83cc1a6" name="更改" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Check/.idea/Check.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Check/.idea/Check.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Check/sv/check_service.go" beforeDir="false" afterPath="$PROJECT_DIR$/Check/sv/sv_check.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/build.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/handler.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/checkserver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/checkservice/checkservice.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/checkservice/client.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/checkservice/server.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/k-checkserver.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_gen/checkserver/service/k-consts.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/kitex_info.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Storage/checkserver/script/bootstrap.sh" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/appearance.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/core-plugins.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.obsidian/workspace.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Check/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Check/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/Check/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/router/router_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/Check/router/router_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/sv/client/client_check.go" beforeDir="false" afterPath="$PROJECT_DIR$/Check/sv/client/client_check.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/sv/client/client_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/Check/sv/client/client_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Check/utils/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/Check/utils/config_center.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Order/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/model/model_order.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/model/model_order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/router/router_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/router/router_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/sv/mq/mq_publish.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/sv/mq/mq_publish.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/sv/redis/redis_handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/sv/redis/redis_handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/sv/redis/redis_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/sv/redis/redis_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/sv/sv_order.go" beforeDir="false" afterPath="$PROJECT_DIR$/Order/sv/sv_order.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Order/utils/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/dao/dao_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/dao/dao_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/model/model_Storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/model/model_Storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/sv/rd/redis_init.go" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/sv/rd/redis_init.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/sv/sv_storage.go" beforeDir="false" afterPath="$PROJECT_DIR$/Storage/sv/sv_storage.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Storage/utils/config.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/.idea/checkserver.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/.idea/go.imports.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/.idea/workspace.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/build.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/handler.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/checkserver.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/checkservice/checkservice.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/checkservice/client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/checkservice/server.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/k-checkserver.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_gen/checkserver/service/k-consts.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/kitex_info.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/checkserver/script/bootstrap.sh" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,7 +96,7 @@
     "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
     "git-widget-placeholder": "main",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "C:/Users/a9776",
+    "last_opened_file_path": "D:/Go_demo/BargainsForSeconds",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
@@ -52,6 +105,12 @@
     "to.speed.mode.migration.done": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Go_demo\BargainsForSeconds\Storage" />
+      <recent name="D:\Go_demo\BargainsForSeconds\Order" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -67,6 +126,15 @@
       <package value="Check" />
       <directory value="$PROJECT_DIR$" />
       <auto_managed_config_id value="$PROJECT_DIR$/Check" />
+      <method v="2" />
+    </configuration>
+    <configuration name="go build ConfigTool/" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="BargainsForSeconds" />
+      <working_directory value="$PROJECT_DIR$/ConfigTool" />
+      <kind value="PACKAGE" />
+      <package value="ConfigTool" />
+      <directory value="$PROJECT_DIR$" />
+      <auto_managed_config_id value="$PROJECT_DIR$/ConfigTool" />
       <method v="2" />
     </configuration>
     <configuration name="go build Order" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">

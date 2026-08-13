@@ -22,4 +22,5 @@ func init() {
 }
 func InitRouter() {
 	h.POST("/check", api.RouterHandler)
+	h.Spin()
 }

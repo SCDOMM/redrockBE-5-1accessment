@@ -2,7 +2,7 @@
 package checkservice
 
 import (
-	service "checkserver/kitex_gen/checkserver/service"
+	service "Check/kitex_gen/checkserver/service"
 	server "github.com/cloudwego/kitex/server"
 )
 

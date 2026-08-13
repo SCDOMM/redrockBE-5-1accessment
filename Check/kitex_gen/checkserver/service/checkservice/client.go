@@ -3,7 +3,7 @@
 package checkservice
 
 import (
-	service "checkserver/kitex_gen/checkserver/service"
+	service "Check/kitex_gen/checkserver/service"
 	"context"
 	client "github.com/cloudwego/kitex/client"
 	callopt "github.com/cloudwego/kitex/client/callopt"

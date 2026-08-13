@@ -1,4 +1,4 @@
 EtcdConfig:
-  key:
-  host:
-  port:
+  key: /config/order
+  host: 127.0.0.1
+  port: 2379

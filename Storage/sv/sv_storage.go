@@ -8,7 +8,6 @@ import (
 )
 
 func StorageMsgHandler(message []byte) error {
-
 	invoiceModel := model.InvoiceModel{}
 	err := json.Unmarshal(message, &invoiceModel)
 	if err != nil {

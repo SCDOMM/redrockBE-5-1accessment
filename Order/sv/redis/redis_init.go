@@ -29,7 +29,7 @@ func init() {
 			rdb.Close()
 			return
 		}
-		log.Println("连接成功！" + pong)
+		log.Println("Redis连接成功！" + pong)
 		redisDB = rdb
 	})
 }

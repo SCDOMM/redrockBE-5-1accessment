@@ -1,19 +1,20 @@
 package main
 
 import (
+	"Storage/kitex_gen/checkserver/service/checkservice"
 	"Storage/mq"
-	"checkserver"
-	"checkserver/kitex_gen/checkserver/service/checkservice"
+	"Storage/registry"
 	"fmt"
 )
 
 func main() {
-	mq.RabbitSample.ConsumeSample()
+	registry.InitRegister()
+	defer registry.CloseRegistry()
+	go mq.RabbitSample.ConsumeSample()
 
-	svr := checkservice.NewServer(new(checkserver.CheckServiceImpl))
-	err := svr.Run()
-	if err != nil {
-		fmt.Println(err.Error())
+	svr := checkservice.NewServer(new(CheckServiceImpl))
+	if err := svr.Run(); err != nil {
+		fmt.Println("RPC Server 启动失败:", err)
 		return
 	}
 }

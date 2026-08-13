@@ -1,7 +1,7 @@
-package checkserver
+package main
 
 import (
-	service "checkserver/kitex_gen/checkserver/service"
+	service "Check/kitex_gen/checkserver/service"
 	"context"
 )
 

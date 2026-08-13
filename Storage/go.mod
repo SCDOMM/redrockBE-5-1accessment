@@ -3,7 +3,6 @@ module Storage
 go 1.26
 
 require (
-	checkserver v0.0.0-00010101000000-000000000000
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/rabbitmq/amqp091-go v1.11.0
 	go.etcd.io/etcd/client/v3 v3.7.1
@@ -11,11 +10,6 @@ require (
 	gorm.io/driver/mysql v1.6.0
 	gorm.io/gorm v1.31.1
 )
-
-replace (
-	checkserver => ../checkserver
-)
-
 require (
 	filippo.io/edwards25519 v1.1.0 // indirect
 	github.com/bytedance/gopkg v0.1.4 // indirect

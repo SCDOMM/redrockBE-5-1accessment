@@ -22,7 +22,6 @@ func ReduceStock(ctx context.Context, order model.OrderData) error {
 		return err
 	}
 	if res.(int64) == -1 {
-		log.Println("库存不足！扣除失败！")
 		return fmt.Errorf("库存不足，扣除失败")
 	}
 	log.Println("扣除成功！")

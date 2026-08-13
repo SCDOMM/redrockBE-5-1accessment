@@ -23,4 +23,5 @@ func init() {
 
 func InitRouter() {
 	h.POST("/order", api.OrderHandler)
+	h.Spin()
 }

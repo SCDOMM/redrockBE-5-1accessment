@@ -27,7 +27,7 @@ func init() {
 		if err != nil {
 			log.Println(err.Error())
 		}
-		log.Println("连接成功！" + pong)
+		log.Println("redis连接成功！" + pong)
 		redisDB = rdb
 	})
 }
